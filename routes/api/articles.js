@@ -38,8 +38,8 @@ router.param('comment', (req, res, next, id) => {
 
 router.get('/', auth.optional, (req, res, next) => {
   const query = {};
-  const limit = 20;
-  const offset = 0;
+  let limit = 20;
+  let offset = 0;
 
   if (typeof req.query.limit !== 'undefined') {
     limit = req.query.limit;
@@ -97,8 +97,8 @@ router.get('/', auth.optional, (req, res, next) => {
 });
 
 router.get('/feed', auth.required, (req, res, next) => {
-  const limit = 20;
-  const offset = 0;
+  let limit = 20;
+  let offset = 0;
 
   if (typeof req.query.limit !== 'undefined') {
     limit = req.query.limit;

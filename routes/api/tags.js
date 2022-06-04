@@ -25,7 +25,6 @@ router.get('/follow',  auth.required, (req, res, next) => {
 
 router.post('/:tag/follow', auth.required, function (req, res, next) {
   const tag = req.params.tag;
-  console.log(tag);
   User.findById(req.payload.id)
     .then((user) => {
       if (!user) {
@@ -47,8 +46,6 @@ router.delete('/:tag/follow', auth.required, function (req, res, next) {
       if (!user) {
         return res.sendStatus(401);
       }
-      cons
-
       return user
         .unfollowTag(tag)
         .then(() => res.status(204).send());
